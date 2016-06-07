@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/businesslogic/businesslogic.iml" filepath="$PROJECT_DIR$/.idea/modules/businesslogic/businesslogic.iml" group="businesslogic" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/businesslogic/businesslogic_main.iml" filepath="$PROJECT_DIR$/.idea/modules/businesslogic/businesslogic_main.iml" group="businesslogic" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/businesslogic/businesslogic_test.iml" filepath="$PROJECT_DIR$/.idea/modules/businesslogic/businesslogic_test.iml" group="businesslogic" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/cheesonline.iml" filepath="$PROJECT_DIR$/.idea/modules/cheesonline.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/cheesonline_main.iml" filepath="$PROJECT_DIR$/.idea/modules/cheesonline_main.iml" group="cheesonline" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/cheesonline_test.iml" filepath="$PROJECT_DIR$/.idea/modules/cheesonline_test.iml" group="cheesonline" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/webui/webui.iml" filepath="$PROJECT_DIR$/.idea/modules/webui/webui.iml" group="webui" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/webui/webui_main.iml" filepath="$PROJECT_DIR$/.idea/modules/webui/webui_main.iml" group="webui" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/webui/webui_test.iml" filepath="$PROJECT_DIR$/.idea/modules/webui/webui_test.iml" group="webui" />
+    </modules>
+  </component>
+</project>

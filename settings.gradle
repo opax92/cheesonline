@@ -1,0 +1,4 @@
+rootProject.name = 'cheesonline'
+
+include "businesslogic"
+include "webui"
