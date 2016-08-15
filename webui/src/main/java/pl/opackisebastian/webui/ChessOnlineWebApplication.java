@@ -1,16 +1,17 @@
-package pl.opackisebastian.webui; /**
- * Created by seb on 15.06.16.
- */
+package pl.opackisebastian.webui;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.ImportResource;
 
+/**
+ * Created by seb on 17.07.16.
+ */
 @SpringBootApplication
 @ComponentScan("pl.opackisebastian.*")
-public class ChessOnlineWebApplication{
+public class ChessOnlineWebApplication {
+
     public static void main(String[] args) {
-        SpringApplication.run(ChessOnlineWebApplication.class, args);
+        SpringApplication.run(ChessOnlineWebApplication.class);
     }
 }

@@ -17,10 +17,9 @@ public abstract class Board {
     private Integer width;
     private Integer height;
 
-
     public Board(int width, int height) {
         fields = new ArrayList<>();
-            this.width = width;
+        this.width = width;
         this.height = height;
         generateFields(width, height);
     }
@@ -38,7 +37,7 @@ public abstract class Board {
         }
     }
 
-    public void setField(Field field, int x, int y){
+    public void setField(Field field, int x, int y) {
         fields.get(x).set(y, field);
     }
 

@@ -32,6 +32,8 @@ public class ChessBoard extends Board {
         }
 
         return movePiece(source, destination);
+
+        //TODO if source or destination not contains pieces, throw exception
     }
 
     private boolean isCorrectChessMove(Coords source, Coords destination) {

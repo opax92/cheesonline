@@ -63,6 +63,12 @@ public abstract class Piece implements ChessMovement {
             return false;
 
         Piece other = (Piece) obj;
+
         return Objects.equals(pieceProperties, other.pieceProperties) && Objects.equals(isMoved, other.isMoved);
+    }
+
+    @Override
+    public String toString() {
+        return getPieceProperties() + getClass().getName();
     }
 }

@@ -6,4 +6,5 @@
 
     <context:component-scan base-package="pl.opackisebastian" />
 
+
 </beans>

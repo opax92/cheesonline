@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<script type="text/javascript" th:src="@{sendHttp.js}"></script>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Main</title>
+</head>
+<body>
+
+<script>
+    //<![CDATA[
+    var url = /*[[@{/} + ${url}]]*/ "/";
+
+    function goToGameUrl(initiatorName){
+        sendHttpRequest(url + "newGame?" + "initiatorName=" + initiatorName, function(responseText){
+            window.location.href = url + "chessboard?filter=" + responseText;
+        });
+    }
+
+    function getFilter(){
+        sendHttpRequest(url + "filter\\get", function(responseText){
+            window.location.href = url + "chessboard?filter=" + responseText;
+        });
+    }
+
+    sendHttpRequest(url + "isGameActive", function (responseText) {
+        if (responseText === 'true') {
+            window.location.href = url + "chessboard?" + getFilter();
+        } else {
+            var playerName = prompt("Please enter your name", "Player");
+            if (playerName != null) {
+                goToGameUrl(playerName);
+            }
+        }
+    });
+    //]]>
+</script>
+</body>
+</html>

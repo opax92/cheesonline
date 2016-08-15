@@ -1,9 +1,7 @@
 package pl.opackisebastian.businesslogic.trace;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import pl.opackisebastian.businesslogic.board.Coords;
 import pl.opackisebastian.businesslogic.exceptions.GenerateTraceException;
-import pl.opackisebastian.businesslogic.services.HelloService;
 
 import java.util.Collections;
 import java.util.HashSet;
