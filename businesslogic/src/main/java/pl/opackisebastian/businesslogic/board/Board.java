@@ -24,8 +24,6 @@ public abstract class Board {
         generateFields(width, height);
     }
 
-    public abstract void setPiecesOnStartPos();
-
     public abstract Piece move(Coords source, Coords destination) throws MoveException;
 
     private void generateFields(int width, int height) {

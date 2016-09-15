@@ -7,6 +7,7 @@ import pl.opackisebastian.businesslogic.pieces.Piece;
  * Created by seb on 25.02.16.
  */
 public class Field {
+
     private Piece piece;
 
     public Field(){
