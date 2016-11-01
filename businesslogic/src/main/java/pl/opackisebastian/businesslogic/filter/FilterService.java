@@ -1,4 +1,4 @@
-package pl.opackisebastian.webui.filter;
+package pl.opackisebastian.businesslogic.filter;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

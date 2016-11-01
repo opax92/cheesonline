@@ -1,4 +1,4 @@
-package pl.opackisebastian.webui.filter;
+package pl.opackisebastian.businesslogic.filter;
 
 /**
  * Created by seb on 14.08.16.

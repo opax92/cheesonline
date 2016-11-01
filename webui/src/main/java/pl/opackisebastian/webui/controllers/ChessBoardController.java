@@ -4,17 +4,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import pl.opackisebastian.businesslogic.board.Board;
 import pl.opackisebastian.businesslogic.services.ChessGameMasterService;
-import pl.opackisebastian.webui.filter.Filter;
-import pl.opackisebastian.webui.filter.FilterRepository;
-import pl.opackisebastian.webui.filter.FilterService;
-import pl.opackisebastian.webui.user.UserData;
+import pl.opackisebastian.businesslogic.filter.Filter;
+import pl.opackisebastian.businesslogic.filter.FilterService;
+import pl.opackisebastian.businesslogic.user.UserChecker;
+import pl.opackisebastian.businesslogic.user.User;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 /**
  * Created by seb on 15.06.16.
@@ -24,54 +23,45 @@ import javax.servlet.http.HttpSession;
 @RequestMapping("/chessboard")
 public class ChessBoardController {
 
-    private final UserData userData;
+    private final User userData;
 
     private final ChessGameMasterService chessGameMasterService;
 
     private final FilterService filterService;
 
     @Autowired
-    public ChessBoardController(UserData userData, ChessGameMasterService chessGameMasterService, FilterService filterService) {
+    public ChessBoardController(User userData, ChessGameMasterService chessGameMasterService, FilterService filterService) {
         this.userData = userData;
         this.chessGameMasterService = chessGameMasterService;
         this.filterService = filterService;
     }
 
     @RequestMapping
-    public String board(HttpServletRequest httpServletRequest, String filter, Model model) {
-        Filter f = filterService.findFilter(filter);
-        String name = userData.getName();
-
-        if (f.waitForOpponent() && name == null) {
-            model.addAttribute("setName", "true");
-        }
+    public String board(HttpServletRequest httpServletRequest, @RequestParam("filter") String filterHash, Model model) {
+        Filter filter = createFlter(filterHash);
+        model.addAttribute("setName", new UserChecker().userSetName(filter, userData.getName()));
         model.addAttribute("url", new String(httpServletRequest.getRequestURL()));
         model.addAttribute("name", userData.getName());
         model.addAttribute("color", userData.getColor());
-        model.addAttribute("filter", f.getId());
+        model.addAttribute("filter", filter.getId());
         return "chessboard";
     }
 
     @RequestMapping("/setOpponentName")
     @ResponseBody
-    public Boolean seOpponentName(String filter, String name) {
-        Filter f = filterService.findFilter(filter);
-        if(f.waitForOpponent()){
-            f.waitForOpponent(false);
-            userData.setFilter(f);
-            userData.setName(name);
-            return true;
-        }
-
-        return false;
+    public Boolean seOpponentName(String name) {
+        return userData.waitingForOpponent(name);
     }
 
     @RequestMapping("/move")
     @ResponseBody
     public String doMove(String filter, String source, String destination) {
-
         Board board = chessGameMasterService.move(source, destination);
 
         return null;
+    }
+
+    private Filter createFlter(String filter){
+        return filterService.findFilter(filter);
     }
 }

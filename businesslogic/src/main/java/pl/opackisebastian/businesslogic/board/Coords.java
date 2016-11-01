@@ -23,16 +23,8 @@ public class Coords implements Comparable<Coords>, Cloneable {
         return x;
     }
 
-    public void setX(Integer x) {
-        this.x = x;
-    }
-
     public Integer getY() {
         return y;
-    }
-
-    public void setY(Integer y) {
-        this.y = y;
     }
 
     public void incY(){
@@ -45,10 +37,6 @@ public class Coords implements Comparable<Coords>, Cloneable {
 
     public void decY(){
         --y;
-    }
-
-    public void decX(){
-        --x;
     }
 
     @Override

@@ -13,45 +13,35 @@ import java.util.List;
 
 public abstract class Board {
 
-    private List<List<Field>> fields;
+    private Fields fields;
     private Integer width;
     private Integer height;
 
-    public Board(int width, int height) {
-        fields = new ArrayList<>();
+    Board(int width, int height) {
         this.width = width;
         this.height = height;
-        generateFields(width, height);
+        fields = new Fields(width, height);
     }
 
     public abstract Piece move(Coords source, Coords destination) throws MoveException;
 
-    private void generateFields(int width, int height) {
-        for (int i = 0; i < width; ++i) {
-            fields.add(new ArrayList<>());
-            for (int y = 0; y < height; ++y) {
-                fields.get(i).add(new Field());
-            }
-        }
+    void setField(Field field, int x, int y) {
+        fields.setField(field, x, y);
     }
 
-    public void setField(Field field, int x, int y) {
-        fields.get(x).set(y, field);
+    Field getField(int x, int y) {
+        return fields.getField(x, y);
     }
 
-    public Field getField(int x, int y) {
-        return fields.get(x).get(y);
+    Field getField(Coords coords) {
+        return fields.getField(coords.getX(), (coords.getY()));
     }
 
-    public Field getField(Coords coords) {
-        return fields.get(coords.getX()).get(coords.getY());
-    }
-
-    public Integer getWidth() {
+    Integer getWidth() {
         return width;
     }
 
-    public Integer getHeight() {
+    Integer getHeight() {
         return height;
     }
 }

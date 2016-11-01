@@ -7,7 +7,7 @@ import java.util.Map;
 /**
  * Created by seb on 15.09.16.
  */
-public interface BoardPiecesSetter {
+interface BoardPiecesSetter {
 
     void setPiecesOnStartPos();
     void setPieces(Map<Coords, Piece> piecesCoords);

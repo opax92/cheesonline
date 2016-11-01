@@ -1,17 +1,17 @@
-package pl.opackisebastian.webui.user;
+package pl.opackisebastian.businesslogic.user;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Component;
 import pl.opackisebastian.businesslogic.player.ColorValue;
-import pl.opackisebastian.webui.filter.Filter;
+import pl.opackisebastian.businesslogic.filter.Filter;
 
 /**
  * Created by seb on 13.08.16.
  */
 @Component("userData")
 @Scope(value = "session", proxyMode = ScopedProxyMode.TARGET_CLASS)
-public class UserData {
+public class User {
 
     private ColorValue color = ColorValue.NO_SET;
 
@@ -41,5 +41,16 @@ public class UserData {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Boolean waitingForOpponent(String name){
+        if(filter.waitForOpponent()){
+            filter.waitForOpponent(false);
+            setFilter(filter);
+            setName(name);
+            return true;
+        }
+
+        return false;
     }
 }

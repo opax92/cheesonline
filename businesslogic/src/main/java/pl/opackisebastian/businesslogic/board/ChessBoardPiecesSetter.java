@@ -17,7 +17,7 @@ class ChessBoardPiecesSetter{
         this.chessBoard = chessBoard;
     }
 
-    public void setPieces() {
+    void setPieces() {
         setOtherPieces(0, PieceColor.BLACK);
         setPawns(1, PieceColor.BLACK);
         setOtherPieces(7, PieceColor.WHITE);

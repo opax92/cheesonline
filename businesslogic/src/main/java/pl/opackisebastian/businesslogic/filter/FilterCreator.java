@@ -1,8 +1,8 @@
-package pl.opackisebastian.webui.filter;
+package pl.opackisebastian.businesslogic.filter;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import pl.opackisebastian.webui.user.UserData;
+import pl.opackisebastian.businesslogic.user.User;
 
 import java.util.Random;
 
@@ -12,10 +12,10 @@ import java.util.Random;
 @Component
 public class FilterCreator {
 
-    private final UserData userData;
+    private final User userData;
 
     @Autowired
-    public FilterCreator(UserData userData) {
+    public FilterCreator(User userData) {
         this.userData = userData;
     }
 

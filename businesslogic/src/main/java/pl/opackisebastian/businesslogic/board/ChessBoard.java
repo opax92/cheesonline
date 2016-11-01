@@ -93,5 +93,4 @@ public class ChessBoard extends Board implements BoardPiecesSetter{
         destinationField.setPiece(pieceToMove);
         return killedPiece;
     }
-
 }

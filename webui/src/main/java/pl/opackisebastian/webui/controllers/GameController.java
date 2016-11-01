@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import pl.opackisebastian.businesslogic.player.ColorValue;
-import pl.opackisebastian.webui.filter.Filter;
-import pl.opackisebastian.webui.filter.FilterCreator;
-import pl.opackisebastian.webui.filter.FilterService;
-import pl.opackisebastian.webui.user.UserData;
+import pl.opackisebastian.businesslogic.filter.Filter;
+import pl.opackisebastian.businesslogic.filter.FilterCreator;
+import pl.opackisebastian.businesslogic.filter.FilterService;
+import pl.opackisebastian.businesslogic.user.User;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -21,14 +21,14 @@ import javax.servlet.http.HttpServletRequest;
 @RequestMapping("/")
 public class GameController {
 
-    private final UserData userData;
+    private final User userData;
 
     private final FilterCreator filterCreator;
 
     private final FilterService filterService;
 
     @Autowired
-    public GameController(UserData userData, FilterCreator filterCreator, FilterService filterService) {
+    public GameController(User userData, FilterCreator filterCreator, FilterService filterService) {
         this.userData = userData;
         this.filterCreator = filterCreator;
         this.filterService = filterService;

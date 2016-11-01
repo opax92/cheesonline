@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import pl.opackisebastian.webui.filter.Filter;
-import pl.opackisebastian.webui.user.UserData;
+import pl.opackisebastian.businesslogic.filter.Filter;
+import pl.opackisebastian.businesslogic.user.User;
 
 /**
  * Created by seb on 15.08.16.
@@ -15,10 +15,10 @@ import pl.opackisebastian.webui.user.UserData;
 @RequestMapping("/filter")
 public class FilterController {
 
-    private final UserData userData;
+    private final User userData;
 
     @Autowired
-    public FilterController(UserData userData) {
+    public FilterController(User userData) {
         this.userData = userData;
         }
 
@@ -28,4 +28,5 @@ public class FilterController {
         Filter filter = userData.getFilter();
         return filter.getId();
     }
+
 }
